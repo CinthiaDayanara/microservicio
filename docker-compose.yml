@@ -1,0 +1,25 @@
+version: '3'
+services:
+  users-service:
+    build: ./users-service
+    ports:
+      - "3000:3000"
+    environment:
+      - JWT_SECRET=your_jwt_secret
+
+  tasks-service:
+    build: ./tasks-service
+    ports:
+      - "3001:3001"
+    environment:
+      - JWT_SECRET=your_jwt_secret
+
+  notifications-service:
+    build: ./notifications-service
+    ports:
+      - "3002:3002"
+    environment:
+      - SMTP_HOST=your_smtp_host
+      - SMTP_PORT=your_smtp_port
+      - SMTP_USER=your_smtp_username
+      - SMTP_PASS=your_smtp_password
